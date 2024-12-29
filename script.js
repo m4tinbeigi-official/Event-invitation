@@ -30,19 +30,24 @@ document.getElementById('preview').addEventListener('click', function() {
 
     // Wait for the image to load before drawing on canvas
     image.onload = function() {
+        // Set canvas size to match the image size
         canvas.width = image.width;
         canvas.height = image.height;
 
+        // Draw the image onto the canvas
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
+        // Set font styles
         ctx.font = `${fontSize}px ${fontFamily}`;
         ctx.fillStyle = fontColor;
         ctx.textAlign = textAlign;
         ctx.textBaseline = 'middle';
 
+        // Combine the male and female names into a single array
         const names = maleNames.concat(femaleNames);
         let yPosition = startY;
 
+        // Loop through the names and draw them on the image
         names.forEach(name => {
             if (addPrefix === 'auto') {
                 if (femaleNames.includes(name)) {
@@ -55,10 +60,16 @@ document.getElementById('preview').addEventListener('click', function() {
             yPosition += 40; // Space between names
         });
 
+        // Display the result in the preview container
         const previewContainer = document.getElementById('previewContainer');
         previewContainer.innerHTML = ''; // Clear previous preview
         previewContainer.appendChild(canvas);
     };
+
+    // Handle image not loaded yet (if user clicks preview before selecting image)
+    if (image.complete) {
+        image.onload();
+    }
 });
 
 document.getElementById('generate').addEventListener('click', function() {
