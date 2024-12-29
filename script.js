@@ -9,7 +9,7 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         };
         reader.readAsDataURL(file);
     } else {
-        defaultImage.src = 'IMG_20241229_141017_321~2.jpg';
+        defaultImage.src = 'default-image-yektanet.jpg';
     }
 });
 

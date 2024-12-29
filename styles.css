@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    min-height: 100vh;
     color: #333;
     padding: 20px;
 }
