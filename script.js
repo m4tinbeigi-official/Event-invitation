@@ -56,28 +56,4 @@ document.getElementById('preview').addEventListener('click', function() {
                     name = 'جناب آقای ' + name;
                 }
             }
-            ctx.fillText(name, startX, yPosition);
-            yPosition += 40; // Space between names
-        });
-
-        // Display the result in the preview container
-        const previewContainer = document.getElementById('previewContainer');
-        previewContainer.innerHTML = ''; // Clear previous preview
-        previewContainer.appendChild(canvas);
-    };
-
-    // Handle image not loaded yet (if user clicks preview before selecting image)
-    if (image.complete) {
-        image.onload();
-    }
-});
-
-document.getElementById('generate').addEventListener('click', function() {
-    const canvas = document.querySelector('canvas');
-    if (!canvas) return;
-
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/jpeg');
-    link.download = 'invitation.jpg';
-    link.click();
-});
+            ctx.fillText(name, startX,
