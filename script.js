@@ -56,4 +56,26 @@ document.getElementById('preview').addEventListener('click', function() {
                     name = 'جناب آقای ' + name;
                 }
             }
-            ctx.fillText(name, startX,
+            ctx.fillText(name, startX, yPosition);
+            yPosition += fontSize * 1.5; // Add some space between names
+        });
+
+        // Display the canvas as a preview
+        const previewContainer = document.getElementById('previewContainer');
+        previewContainer.innerHTML = ''; // Clear previous previews
+        previewContainer.appendChild(canvas);
+    };
+});
+
+document.getElementById('generate').addEventListener('click', function() {
+    const canvas = document.querySelector('canvas');
+    if (canvas) {
+        const dataUrl = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = 'invitation_image.png';
+        link.click();
+    } else {
+        alert("لطفاً ابتدا پیش‌نمایش را مشاهده کنید.");
+    }
+});
