@@ -1,63 +1,68 @@
-document.getElementById('preview').addEventListener('click', async () => {
-    const files = document.getElementById('imageUpload').files;
-    const maleNames = document.getElementById('maleNames').value.split('\n').map(name => name.trim());
-    const femaleNames = document.getElementById('femaleNames').value.split('\n').map(name => name.trim());
-    const addPrefix = document.querySelector('input[name="addPrefix"]:checked').value;
-    const textAlign = document.querySelector('input[name="textAlign"]:checked').value;
-    const fontColor = document.getElementById('fontColor').value;
-    const fontSizeMax = parseInt(document.getElementById('fontSize').value);
-    const startX = parseInt(document.getElementById('startX').value);
-    const startY = parseInt(document.getElementById('startY').value);
-    const fontFamily = document.getElementById('fontFamily').value;
+document.getElementById('imageUpload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const defaultImage = document.getElementById('defaultImage');
 
-    if (!files.length) return alert('لطفاً تصویر دعوت‌نامه را آپلود کنید!');
-    if (!maleNames.length && !femaleNames.length) return alert('لطفاً حداقل یک اسم وارد کنید!');
-
-    const previewContainer = document.getElementById('previewContainer');
-    previewContainer.innerHTML = '';
-
-    for (const file of files) {
-        const image = await loadImage(file);
-
-        const names = [...maleNames.map(name => addPrefix === 'auto' ? `جناب آقای ${name}` : name),
-                       ...femaleNames.map(name => addPrefix === 'auto' ? `سرکار خانم ${name}` : name)];
-
-        for (const name of names) {
-            const previewImage = generateInvite(image, name, fontColor, fontSizeMax, textAlign, fontFamily, startX, startY);
-            const previewItem = document.createElement('div');
-            previewItem.className = 'preview-item';
-            previewItem.innerHTML = `
-                <img src="${previewImage}" alt="${name}">
-                <span>${name}</span>
-            `;
-            previewContainer.appendChild(previewItem);
-        }
-
-        break;
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            defaultImage.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    } else {
+        defaultImage.src = 'images/default-image.jpg';
     }
 });
 
-function loadImage(file) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = URL.createObjectURL(file);
-    });
-}
+document.getElementById('preview').addEventListener('click', function() {
+    const image = document.getElementById('defaultImage');
+    const maleNames = document.getElementById('maleNames').value.split('\n');
+    const femaleNames = document.getElementById('femaleNames').value.split('\n');
+    const fontColor = document.getElementById('fontColor').value;
+    const fontSize = document.getElementById('fontSize').value;
+    const fontFamily = document.getElementById('fontFamily').value;
+    const startX = document.getElementById('startX').value;
+    const startY = document.getElementById('startY').value;
+    const textAlign = document.querySelector('input[name="textAlign"]:checked').value;
+    const addPrefix = document.querySelector('input[name="addPrefix"]:checked').value;
 
-function generateInvite(image, name, fontColor, fontSizeMax, textAlign, fontFamily, startX, startY) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = image.width;
     canvas.height = image.height;
 
-    ctx.drawImage(image, 0, 0);
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-    ctx.font = `${fontSizeMax}px ${fontFamily}`;
+    ctx.font = `${fontSize}px ${fontFamily}`;
     ctx.fillStyle = fontColor;
     ctx.textAlign = textAlign;
-    ctx.fillText(name, startX, startY);
+    ctx.textBaseline = 'middle';
 
-    return canvas.toDataURL('image/jpeg');
-}
+    const names = maleNames.concat(femaleNames);
+    let yPosition = startY;
+
+    names.forEach(name => {
+        if (addPrefix === 'auto') {
+            if (femaleNames.includes(name)) {
+                name = 'سرکار خانم ' + name;
+            } else {
+                name = 'جناب آقای ' + name;
+            }
+        }
+        ctx.fillText(name, startX, yPosition);
+        yPosition += 40; // Space between names
+    });
+
+    const previewContainer = document.getElementById('previewContainer');
+    previewContainer.innerHTML = '';
+    previewContainer.appendChild(canvas);
+});
+
+document.getElementById('generate').addEventListener('click', function() {
+    const canvas = document.querySelector('canvas');
+    if (!canvas) return;
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/jpeg');
+    link.download = 'invitation.jpg';
+    link.click();
+});
