@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Vazir', sans-serif;
-    text-align: center;
+    text-align: right; /* راست‌چین کردن */
     padding: 20px;
     background-color: #f4f4f9;
     color: #333;
@@ -38,7 +38,7 @@ label {
     color: #34495e;
 }
 
-textarea, input[type="file"], input[type="color"], input[type="number"], input[type="radio"] {
+textarea, input[type="file"], input[type="color"], input[type="number"], input[type="radio"], select {
     width: 100%;
     padding: 10px;
     font-size: 16px;
