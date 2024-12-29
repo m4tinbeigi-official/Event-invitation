@@ -9,7 +9,7 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         };
         reader.readAsDataURL(file);
     } else {
-        defaultImage.src = 'IMG_20241229_141017_321~2.jpg'; // مسیر پیش‌فرض
+        defaultImage.src = 'IMG_20241229_141017_321~2.jpg';
     }
 });
 
@@ -20,41 +20,45 @@ document.getElementById('preview').addEventListener('click', function() {
     const fontColor = document.getElementById('fontColor').value;
     const fontSize = document.getElementById('fontSize').value;
     const fontFamily = document.getElementById('fontFamily').value;
-    const startX = document.getElementById('startX').value;
-    const startY = document.getElementById('startY').value;
+    const startX = parseInt(document.getElementById('startX').value);
+    const startY = parseInt(document.getElementById('startY').value);
     const textAlign = document.querySelector('input[name="textAlign"]:checked').value;
     const addPrefix = document.querySelector('input[name="addPrefix"]:checked').value;
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = image.width;
-    canvas.height = image.height;
 
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    // Wait for the image to load before drawing on canvas
+    image.onload = function() {
+        canvas.width = image.width;
+        canvas.height = image.height;
 
-    ctx.font = `${fontSize}px ${fontFamily}`;
-    ctx.fillStyle = fontColor;
-    ctx.textAlign = textAlign;
-    ctx.textBaseline = 'middle';
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-    const names = maleNames.concat(femaleNames);
-    let yPosition = startY;
+        ctx.font = `${fontSize}px ${fontFamily}`;
+        ctx.fillStyle = fontColor;
+        ctx.textAlign = textAlign;
+        ctx.textBaseline = 'middle';
 
-    names.forEach(name => {
-        if (addPrefix === 'auto') {
-            if (femaleNames.includes(name)) {
-                name = 'سرکار خانم ' + name;
-            } else {
-                name = 'جناب آقای ' + name;
+        const names = maleNames.concat(femaleNames);
+        let yPosition = startY;
+
+        names.forEach(name => {
+            if (addPrefix === 'auto') {
+                if (femaleNames.includes(name)) {
+                    name = 'سرکار خانم ' + name;
+                } else {
+                    name = 'جناب آقای ' + name;
+                }
             }
-        }
-        ctx.fillText(name, startX, yPosition);
-        yPosition += 40; // Space between names
-    });
+            ctx.fillText(name, startX, yPosition);
+            yPosition += 40; // Space between names
+        });
 
-    const previewContainer = document.getElementById('previewContainer');
-    previewContainer.innerHTML = '';
-    previewContainer.appendChild(canvas);
+        const previewContainer = document.getElementById('previewContainer');
+        previewContainer.innerHTML = ''; // Clear previous preview
+        previewContainer.appendChild(canvas);
+    };
 });
 
 document.getElementById('generate').addEventListener('click', function() {
@@ -62,7 +66,7 @@ document.getElementById('generate').addEventListener('click', function() {
     if (!canvas) return;
 
     const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/jpeg', 1.0); // تنظیم کیفیت تصویر برای خروجی بهتر
-    link.download = 'invitation.jpg';  // نام فایل خروجی
+    link.href = canvas.toDataURL('image/jpeg');
+    link.download = 'invitation.jpg';
     link.click();
 });
