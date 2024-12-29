@@ -1,111 +1,69 @@
-/* اضافه کردن فونت وزیر */
-@import url('https://fonts.googleapis.com/css2?family=Vazir&display=swap');
-
 body {
-    font-family: 'Vazir', sans-serif;
-    text-align: right; /* راست‌چین کردن */
-    padding: 20px;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: Vazir, Arial, sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
+    padding: 20px;
     background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h1 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
 }
 
 .form-group {
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
 }
 
 label {
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #34495e;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
 }
 
-textarea, input[type="file"], input[type="color"], input[type="number"], input[type="radio"], select {
+input[type="file"] {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
+    margin-top: 8px;
 }
 
 textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 8px;
     resize: vertical;
 }
 
 button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 12px 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #45a049;
 }
 
-.preview-container {
+#previewContainer {
     margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.preview-item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 250px;
 }
 
-.preview-item img {
+#defaultImage {
     width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
-}
-
-.preview-item span {
-    display: block;
-    padding: 10px;
-    font-weight: bold;
-    color: #34495e;
-}
-
-/* برای بهتر شدن ظاهر فیلد انتخاب فونت */
-input[type="file"] {
-    background-color: #f5f5f5;
-}
-
-input[type="color"] {
-    padding: 5px;
-}
-
-input[type="number"] {
-    width: 80px;
+    max-width: 300px;
+    margin-top: 20px;
+    border-radius: 5px;
 }
