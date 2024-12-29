@@ -1,0 +1,44 @@
+body {
+    font-family: "Vazir", sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.preview-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.preview-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.preview-item img {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.preview-item span {
+    display: block;
+    padding: 10px;
+    font-weight: bold;
+}
