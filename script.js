@@ -59,4 +59,5 @@ function generateInvite(image, name, fontColor, fontSizeMax, textAlign, fontFami
     ctx.textAlign = textAlign;
     ctx.fillText(name, startX, startY);
 
-    return canvas.toDataURL
+    return canvas.toDataURL('image/jpeg');
+}
