@@ -9,7 +9,7 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         };
         reader.readAsDataURL(file);
     } else {
-        defaultImage.src = 'IMG_20241229_141017_321~2.jpg';
+        defaultImage.src = 'IMG_20241229_141017_321~2.jpg'; // مسیر پیش‌فرض
     }
 });
 
@@ -62,7 +62,7 @@ document.getElementById('generate').addEventListener('click', function() {
     if (!canvas) return;
 
     const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/jpeg');
-    link.download = 'invitation.jpg';
+    link.href = canvas.toDataURL('image/jpeg', 1.0); // تنظیم کیفیت تصویر برای خروجی بهتر
+    link.download = 'invitation.jpg';  // نام فایل خروجی
     link.click();
 });
