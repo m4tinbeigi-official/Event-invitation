@@ -1,4 +1,3 @@
-
 document.getElementById('preview').addEventListener('click', async () => {
     const files = document.getElementById('imageUpload').files;
     const maleNames = document.getElementById('maleNames').value.split('\n').map(name => name.trim());
@@ -9,6 +8,7 @@ document.getElementById('preview').addEventListener('click', async () => {
     const fontSizeMax = parseInt(document.getElementById('fontSize').value);
     const startX = parseInt(document.getElementById('startX').value);
     const startY = parseInt(document.getElementById('startY').value);
+    const fontFamily = document.getElementById('fontFamily').value;
 
     if (!files.length) return alert('لطفاً تصویر دعوت‌نامه را آپلود کنید!');
     if (!maleNames.length && !femaleNames.length) return alert('لطفاً حداقل یک اسم وارد کنید!');
@@ -23,7 +23,7 @@ document.getElementById('preview').addEventListener('click', async () => {
                        ...femaleNames.map(name => addPrefix === 'auto' ? `سرکار خانم ${name}` : name)];
 
         for (const name of names) {
-            const previewImage = generateInvite(image, name, fontColor, fontSizeMax, textAlign, startX, startY);
+            const previewImage = generateInvite(image, name, fontColor, fontSizeMax, textAlign, fontFamily, startX, startY);
             const previewItem = document.createElement('div');
             previewItem.className = 'preview-item';
             previewItem.innerHTML = `
@@ -46,7 +46,7 @@ function loadImage(file) {
     });
 }
 
-function generateInvite(image, name, fontColor, fontSizeMax, textAlign, startX, startY) {
+function generateInvite(image, name, fontColor, fontSizeMax, textAlign, fontFamily, startX, startY) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = image.width;
@@ -54,10 +54,9 @@ function generateInvite(image, name, fontColor, fontSizeMax, textAlign, startX, 
 
     ctx.drawImage(image, 0, 0);
 
-    ctx.font = `${fontSizeMax}px Vazir`;
+    ctx.font = `${fontSizeMax}px ${fontFamily}`;
     ctx.fillStyle = fontColor;
     ctx.textAlign = textAlign;
     ctx.fillText(name, startX, startY);
 
-    return canvas.toDataURL('image/png');
-}
+    return canvas.toDataURL
