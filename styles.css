@@ -10,23 +10,26 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
     color: #333;
+    padding: 20px;
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    overflow: hidden;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .form-group {
@@ -48,6 +51,7 @@ select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 textarea {
@@ -62,7 +66,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-right: 10px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 button:hover {
@@ -77,4 +83,51 @@ button:hover {
 img {
     max-width: 100%;
     height: auto;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 15px;
+        box-shadow: none;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input[type="number"],
+    input[type="color"],
+    select {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    input[type="file"],
+    textarea,
+    input[type="number"],
+    input[type="color"],
+    select {
+        font-size: 0.8rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
 }
