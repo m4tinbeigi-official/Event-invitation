@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ساخت دعوت نامه</title>
+    <link href="https://cdn.fontcdn.ir/fa/vazir/font.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>ساخت دعوت نامه</h1>
+
         <div class="form-group">
             <label for="imageUpload">انتخاب تصویر دعوت نامه:</label>
             <input type="file" id="imageUpload" accept="image/*" required>
         </div>
+
+        <div class="form-group">
+            <label>تصویر پیش‌فرض:</label>
+            <img src="images/default-image.jpg" alt="تصویر پیش‌فرض" id="defaultImage" width="300">
+        </div>
+
         <div class="form-group">
             <label for="maleNames">اسامی آقایان (هر اسم در یک خط جداگانه):</label>
             <textarea id="maleNames" rows="5">ریک سانچز</textarea>
@@ -22,19 +30,23 @@
             <textarea id="femaleNames" rows="5">مهسا علی‌وردی
 دل‌آرام ارشدی</textarea>
         </div>
+
         <div class="form-group">
             <label>افزودن پیشوند:</label>
             <input type="radio" id="auto" name="addPrefix" value="auto" checked> خودکار
             <input type="radio" id="manual" name="addPrefix" value="manual"> دستی
         </div>
+
         <div class="form-group">
             <label for="fontColor">انتخاب رنگ فونت:</label>
             <input type="color" id="fontColor" value="#000000">
         </div>
+
         <div class="form-group">
             <label for="fontSize">اندازه فونت:</label>
             <input type="number" id="fontSize" value="35" min="10" max="100">
         </div>
+
         <div class="form-group">
             <label for="fontFamily">انتخاب فونت متن:</label>
             <select id="fontFamily">
@@ -44,26 +56,32 @@
                 <option value="Tahoma">Tahoma</option>
             </select>
         </div>
+
         <div class="form-group">
             <label for="startX">موقعیت افقی متن:</label>
             <input type="number" id="startX" value="630">
         </div>
+
         <div class="form-group">
             <label for="startY">موقعیت عمودی متن:</label>
             <input type="number" id="startY" value="720">
         </div>
+
         <div class="form-group">
             <label>چینش متن:</label>
             <input type="radio" name="textAlign" value="left"> چپ
             <input type="radio" name="textAlign" value="center"> وسط
             <input type="radio" name="textAlign" value="right" checked> راست
         </div>
+
         <div class="form-group">
             <button type="button" id="preview">پیش‌نمایش</button>
             <button type="button" id="generate">ایجاد و دانلود</button>
         </div>
+
         <div id="previewContainer" class="preview-container"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
