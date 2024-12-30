@@ -68,14 +68,15 @@ document.getElementById('preview').addEventListener('click', function () {
 
     // Clear previous previews
     const previewContainer = document.getElementById('previewContainer');
-    previewContainer.innerHTML = '';
+    previewContainer.innerHTML = ''; // Clear previous previews
 
     // For each name, create a preview
     names.forEach((name) => {
         drawTextOnImage(image, name, settings, function (canvas, name) {
-            // Add canvas as preview
-            const previewClone = canvas.cloneNode(true);
-            previewContainer.appendChild(previewClone);
+            // Create a new image element for the preview
+            const previewClone = document.createElement('img');
+            previewClone.src = canvas.toDataURL('image/jpeg'); // Create the image preview
+            previewContainer.appendChild(previewClone); // Add the preview image to the container
         });
     });
 });
