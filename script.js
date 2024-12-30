@@ -6,18 +6,23 @@ document.getElementById('imageUpload').addEventListener('change', function (even
         const reader = new FileReader();
         reader.onload = function (e) {
             defaultImage.src = e.target.result; // نمایش تصویر آپلود شده
+            defaultImage.setAttribute('data-default', 'false'); // تنظیم به حالت آپلود شده
         };
         reader.readAsDataURL(file);
     } else {
-        defaultImage.src = 'default-image-yektanet.jpg'; // بازگشت به تصویر پیش‌فرض
+        resetToDefaultImage(); // بازگشت به تصویر پیش‌فرض
     }
 });
 
-// بررسی تصویر پیش‌فرض هنگام بارگذاری صفحه
-window.addEventListener('load', function () {
+// بازگرداندن تصویر پیش‌فرض در صورت نیاز
+function resetToDefaultImage() {
     const defaultImage = document.getElementById('defaultImage');
-    defaultImage.src = 'default-image-yektanet.jpg'; // اطمینان از تنظیم تصویر پیش‌فرض
-});
+    defaultImage.src = 'default-image-yektanet.jpg';
+    defaultImage.setAttribute('data-default', 'true'); // نشانگر استفاده از تصویر پیش‌فرض
+}
+
+// تنظیم تصویر پیش‌فرض هنگام بارگذاری صفحه
+window.addEventListener('load', resetToDefaultImage);
 
 function drawTextOnImage(imageSrc, name, settings, callback) {
     const canvas = document.createElement('canvas');
@@ -53,10 +58,16 @@ function drawTextOnImage(imageSrc, name, settings, callback) {
         // بازگشت نتیجه
         callback(canvas, name);
     };
+
+    // در صورت بروز خطا هنگام بارگذاری تصویر
+    image.onerror = function () {
+        alert('مشکلی در بارگذاری تصویر پیش آمده است.');
+    };
 }
 
 document.getElementById('preview').addEventListener('click', function () {
-    const imageSrc = document.getElementById('defaultImage').src;
+    const defaultImage = document.getElementById('defaultImage');
+    const imageSrc = defaultImage.src;
     const maleNames = document.getElementById('maleNames').value.split('\n').filter(Boolean);
     const femaleNames = document.getElementById('femaleNames').value.split('\n').filter(Boolean);
     const fontColor = document.getElementById('fontColor').value;
@@ -85,7 +96,8 @@ document.getElementById('preview').addEventListener('click', function () {
 });
 
 document.getElementById('generate').addEventListener('click', function () {
-    const imageSrc = document.getElementById('defaultImage').src;
+    const defaultImage = document.getElementById('defaultImage');
+    const imageSrc = defaultImage.src;
     const maleNames = document.getElementById('maleNames').value.split('\n').filter(Boolean);
     const femaleNames = document.getElementById('femaleNames').value.split('\n').filter(Boolean);
     const fontColor = document.getElementById('fontColor').value;

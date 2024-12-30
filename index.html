@@ -83,6 +83,39 @@
         <div id="previewContainer" class="preview-container"></div>
     </div>
 
+    <footer class="footer">
+        <p>✨ این پروژه با ❤️ توسط <strong>ریک سانچز</strong> ساخته شده است.</p>
+        <p>📧 برای ارتباط: <a href="mailto:m4tinbeigi@gmail.com">m4tinbeigi@gmail.com</a></p>
+        <div class="social-links">
+            <a href="https://github.com/m4tinbeigi" target="_blank" title="GitHub">
+                <img src="https://img.icons8.com/ios-glyphs/30/github.png" alt="GitHub">
+            </a>
+            <a href="https://twitter.com/m4tinbeigi" target="_blank" title="Twitter">
+                <img src="https://img.icons8.com/ios-filled/30/twitter.png" alt="Twitter">
+            </a>
+            <a href="https://www.instagram.com/m4tinbeigi" target="_blank" title="Instagram">
+                <img src="https://img.icons8.com/ios-glyphs/30/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://linkedin.com/in/m4tinbeigi" target="_blank" title="LinkedIn">
+                <img src="https://img.icons8.com/ios-filled/30/linkedin.png" alt="LinkedIn">
+            </a>
+        </div>
+        <p>⭐ به این پروژه در گیت‌هاب ستاره بدهید: 
+            <a href="https://github.com/m4tinbeigi/project" target="_blank">GitHub Repository</a>
+        </p>
+        <div id="github-star-button"></div>
+    </footer>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        // اضافه کردن دکمه ستاره گیت‌هاب
+        const githubStarButton = document.getElementById('github-star-button');
+        githubStarButton.innerHTML = `
+            <a class="github-button" href="https://github.com/m4tinbeigi/project" data-icon="octicon-star" 
+               data-size="large" aria-label="Star m4tinbeigi/project on GitHub">Star</a>
+        `;
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
