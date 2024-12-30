@@ -21,27 +21,32 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 800px; /* حداکثر عرض برای container */
+    width: 100%; /* استفاده از تمام عرض صفحه */
+    max-width: 1200px; /* حداکثر عرض برای container */
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     margin-top: 30px;
-    flex: 1; /* برای پر کردن فضای اضافی */
     box-sizing: border-box;
     align-self: center;
 }
 
-/* تنظیمات چیدمان با استفاده از Grid */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* تنظیمات چیدمان با استفاده از Flexbox */
 .form-group {
     margin-bottom: 20px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-wrap: wrap; /* اجازه می‌دهد عناصر به خط بعد بروند */
+    gap: 20px; /* فاصله بین عناصر */
 }
 
-label {
+.form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -53,7 +58,7 @@ textarea,
 input[type="number"],
 input[type="color"],
 select {
-    width: 48%; /* به جای 100% عرض کمتر برای فرم‌ها */
+    width: 100%; /* عرض کامل برای همه فیلدها */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -66,6 +71,19 @@ textarea {
     width: 100%; /* برای textarea همچنان عرض کامل */
 }
 
+/* تنظیمات برای چیدمان کنار هم */
+.inline-group {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.inline-group > .form-group {
+    flex: 1; /* هر فیلد به طور مساوی عرض بگیرد */
+    margin-bottom: 0; /* فاصله بین فرم‌ها کاهش می‌دهیم */
+}
+
+/* دکمه‌ها */
 button {
     padding: 12px 20px;
     background-color: #4CAF50;
@@ -83,27 +101,6 @@ button:hover {
     background-color: #45a049;
 }
 
-/* تنظیمات برای چیدمان کنار هم (برای فرم‌ها و فیلدها) */
-@media (min-width: 600px) {
-    .form-group {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* دو ستون */
-        gap: 20px;
-    }
-
-    .form-group label {
-        margin-bottom: 5px;
-    }
-
-    input[type="file"],
-    textarea,
-    input[type="number"],
-    input[type="color"],
-    select {
-        width: 100%;
-    }
-}
-
 /* پیش‌نمایش تصاویر */
 .preview-container {
     display: flex;
@@ -114,7 +111,7 @@ button:hover {
 }
 
 .preview-container img {
-    width: 50%;
+    width: 30%;
     max-width: 200px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -131,6 +128,10 @@ button:hover {
 @media (max-width: 600px) {
     .form-group {
         display: block;
+    }
+
+    .inline-group {
+        flex-direction: column;
     }
 
     .container {
@@ -184,4 +185,9 @@ button:hover {
     vertical-align: middle;
     width: 30px;
     height: 30px;
+}
+
+/* مخفی کردن بخش تصویر پیش‌فرض */
+.hidden {
+    display: none;
 }

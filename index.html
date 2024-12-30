@@ -38,20 +38,23 @@
             <input type="file" id="imageUpload" accept="image/*">
         </div>
 
-        <div class="form-group">
-            <label>تصویر پیش‌فرض:</label>
-            <img src="default-image-yektanet.jpg" alt="تصویر پیش‌فرض دعوت‌نامه" id="defaultImage" width="300">
-        </div>
+        <div class="form-group hidden" id="defaultImageContainer">
+			<label>تصویر پیش‌فرض:</label>
+			<img src="default-image-yektanet.jpg" alt="تصویر پیش‌فرض دعوت‌نامه" id="defaultImage" width="300">
+		</div>
 
-        <div class="form-group">
-            <label for="maleNames">اسامی آقایان (هر اسم در یک خط جداگانه):</label>
-            <textarea id="maleNames" rows="5">ریک سانچز</textarea>
-        </div>
 
-        <div class="form-group">
-            <label for="femaleNames">اسامی خانم‌ها (هر اسم در یک خط جداگانه):</label>
-            <textarea id="femaleNames" rows="5">مهسا علی‌وردی
+        <div class="inline-group">
+            <div class="form-group">
+                <label for="maleNames">اسامی آقایان (هر اسم در یک خط جداگانه):</label>
+                <textarea id="maleNames" rows="5">ریک سانچز</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="femaleNames">اسامی خانم‌ها (هر اسم در یک خط جداگانه):</label>
+                <textarea id="femaleNames" rows="5">مهسا علی‌وردی
 دل‌آرام ارشدی</textarea>
+            </div>
         </div>
 
         <div class="form-group">
@@ -60,14 +63,16 @@
             <input type="radio" id="manual" name="addPrefix" value="manual"> دستی
         </div>
 
-        <div class="form-group">
-            <label for="fontColor">انتخاب رنگ فونت:</label>
-            <input type="color" id="fontColor" value="#000000">
-        </div>
+        <div class="inline-group">
+            <div class="form-group">
+                <label for="fontColor">انتخاب رنگ فونت:</label>
+                <input type="color" id="fontColor" value="#000000">
+            </div>
 
-        <div class="form-group">
-            <label for="fontSize">اندازه فونت:</label>
-            <input type="number" id="fontSize" value="35" min="10" max="100">
+            <div class="form-group">
+                <label for="fontSize">اندازه فونت:</label>
+                <input type="number" id="fontSize" value="35" min="10" max="100">
+            </div>
         </div>
 
         <div class="form-group">
@@ -80,14 +85,16 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="startX">موقعیت افقی متن:</label>
-            <input type="number" id="startX" value="630">
-        </div>
+        <div class="inline-group">
+            <div class="form-group">
+                <label for="startX">موقعیت افقی متن:</label>
+                <input type="number" id="startX" value="630">
+            </div>
 
-        <div class="form-group">
-            <label for="startY">موقعیت عمودی متن:</label>
-            <input type="number" id="startY" value="720">
+            <div class="form-group">
+                <label for="startY">موقعیت عمودی متن:</label>
+                <input type="number" id="startY" value="720">
+            </div>
         </div>
 
         <div class="form-group">
