@@ -5,12 +5,18 @@ document.getElementById('imageUpload').addEventListener('change', function (even
     if (file) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            defaultImage.src = e.target.result;
+            defaultImage.src = e.target.result; // نمایش تصویر آپلود شده
         };
         reader.readAsDataURL(file);
     } else {
-        defaultImage.src = 'default-image-yektanet.jpg';
+        defaultImage.src = 'default-image-yektanet.jpg'; // بازگشت به تصویر پیش‌فرض
     }
+});
+
+// بررسی تصویر پیش‌فرض هنگام بارگذاری صفحه
+window.addEventListener('load', function () {
+    const defaultImage = document.getElementById('defaultImage');
+    defaultImage.src = 'default-image-yektanet.jpg'; // اطمینان از تنظیم تصویر پیش‌فرض
 });
 
 function drawTextOnImage(imageSrc, name, settings, callback) {
