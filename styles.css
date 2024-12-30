@@ -33,14 +33,12 @@ body {
     align-self: center;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
+/* تنظیمات چیدمان با استفاده از Grid */
 .form-group {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 label {
@@ -49,12 +47,13 @@ label {
     font-weight: bold;
 }
 
+/* تنظیمات فرم‌ها */
 input[type="file"],
 textarea,
 input[type="number"],
 input[type="color"],
 select {
-    width: 100%;
+    width: 48%; /* به جای 100% عرض کمتر برای فرم‌ها */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -64,6 +63,7 @@ select {
 
 textarea {
     resize: vertical;
+    width: 100%; /* برای textarea همچنان عرض کامل */
 }
 
 button {
@@ -83,6 +83,28 @@ button:hover {
     background-color: #45a049;
 }
 
+/* تنظیمات برای چیدمان کنار هم (برای فرم‌ها و فیلدها) */
+@media (min-width: 600px) {
+    .form-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* دو ستون */
+        gap: 20px;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+    }
+
+    input[type="file"],
+    textarea,
+    input[type="number"],
+    input[type="color"],
+    select {
+        width: 100%;
+    }
+}
+
+/* پیش‌نمایش تصاویر */
 .preview-container {
     display: flex;
     flex-wrap: wrap;
@@ -105,28 +127,15 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* استایل موبایل */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 1.5rem;
+    .form-group {
+        display: block;
     }
 
     .container {
         padding: 15px;
         box-shadow: none;
-    }
-
-    .form-group {
-        margin-bottom: 10px;
-    }
-
-    label {
-        font-size: 0.9rem;
-    }
-
-    input[type="number"],
-    input[type="color"],
-    select {
-        font-size: 0.9rem;
     }
 
     button {
@@ -135,28 +144,6 @@ button:hover {
 
     .preview-container img {
         width: 60%;
-    }
-}
-
-@media (max-width: 400px) {
-    h1 {
-        font-size: 1.2rem;
-    }
-
-    input[type="file"],
-    textarea,
-    input[type="number"],
-    input[type="color"],
-    select {
-        font-size: 0.8rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-    }
-
-    .preview-container img {
-        width: 80%;
     }
 }
 
