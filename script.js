@@ -110,16 +110,17 @@ document.getElementById('generate').addEventListener('click', function () {
         });
     });
 
-    // Download all images once all are ready
-    Promise.all(canvases.map((item) => new Promise((resolve) => {
-        const canvas = item.canvas;
-        const dataUrl = canvas.toDataURL('image/jpeg'); // Change to 'image/jpeg' for jpg format
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = `${item.name}.jpg`; // Use name as the filename for the image
-        link.click();
-        resolve(); // Resolve each promise after the download is triggered
-    }))).then(() => {
+    // Delay to ensure all images are ready before download
+    setTimeout(function() {
+        canvases.forEach(function (item) {
+            const canvas = item.canvas;
+            const dataUrl = canvas.toDataURL('image/jpeg'); // Change to 'image/jpeg' for jpg format
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = `${item.name}.jpg`; // Use name as the filename for the image
+            link.click();
+        });
+
         alert('All invitations have been downloaded.');
-    });
+    }, 500); // Ensure that all canvas drawing is completed before proceeding
 });
