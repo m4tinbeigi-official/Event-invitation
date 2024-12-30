@@ -17,6 +17,7 @@ body {
     color: #333;
     padding: 20px;
     flex-direction: column; /* محتوای صفحه به صورت عمودی قرار می‌گیرد */
+    overflow-x: hidden; /* جلوگیری از اسکرول افقی */
 }
 
 .container {
@@ -26,11 +27,10 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden;
     margin-top: 30px;
     flex: 1; /* برای پر کردن فضای اضافی */
     box-sizing: border-box;
-	align-self: center;
+    align-self: center;
 }
 
 h1 {
