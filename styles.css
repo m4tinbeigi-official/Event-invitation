@@ -1,3 +1,4 @@
+/* تنظیمات عمومی */
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +11,8 @@ body {
     direction: rtl;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: center; /* صفحه را در مرکز قرار می‌دهد */
+    align-items: center; /* عمودی وسط کردن */
     min-height: 100vh;
     color: #333;
     padding: 20px;
@@ -26,6 +27,8 @@ body {
     border-radius: 8px;
     overflow: hidden;
     margin-top: 30px;
+    display: flex;
+    flex-direction: column; /* محتوای درون کانتینر به صورت عمودی */
 }
 
 h1 {
@@ -82,13 +85,13 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* فاصله بین پیش‌نمایش‌ها */
+    gap: 10px;
     margin-top: 20px;
 }
 
 .preview-container img {
-    width: 50%; /* نمایش در اندازه ۵۰ درصد */
-    max-width: 200px; /* حداکثر عرض */
+    width: 50%;
+    max-width: 200px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -97,7 +100,7 @@ button:hover {
 }
 
 .preview-container img:hover {
-    transform: scale(1.05); /* بزرگنمایی هنگام هاور */
+    transform: scale(1.05);
 }
 
 @media (max-width: 600px) {
@@ -129,7 +132,7 @@ button:hover {
     }
 
     .preview-container img {
-        width: 60%; /* در دستگاه‌های کوچکتر پیش‌نمایش بزرگتر شود */
+        width: 60%;
     }
 }
 
@@ -151,12 +154,11 @@ button:hover {
     }
 
     .preview-container img {
-        width: 80%; /* در دستگاه‌های خیلی کوچک */
+        width: 80%;
     }
 }
 
-
-
+/* فوتر */
 .footer {
     background-color: #f4f4f4;
     text-align: center;
