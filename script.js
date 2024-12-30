@@ -44,7 +44,7 @@ function drawTextOnImage(image, name, settings, callback) {
         const yPosition = settings.startY;
         ctx.fillText(name, settings.startX, yPosition);
 
-        callback(canvas, name);
+        callback(canvas, name); // Pass canvas and name to callback
     };
 }
 
@@ -64,10 +64,19 @@ document.getElementById('preview').addEventListener('click', function () {
 
     const settings = { fontColor, fontSize, fontFamily, startX, startY, textAlign, addPrefix, femaleNames };
 
-    drawTextOnImage(image, maleNames.concat(femaleNames), settings, function (canvas) {
-        const previewContainer = document.getElementById('previewContainer');
-        previewContainer.innerHTML = ''; // Clear previous previews
-        previewContainer.appendChild(canvas);
+    const names = maleNames.concat(femaleNames);
+
+    // Clear previous previews
+    const previewContainer = document.getElementById('previewContainer');
+    previewContainer.innerHTML = '';
+
+    // For each name, create a preview
+    names.forEach((name) => {
+        drawTextOnImage(image, name, settings, function (canvas, name) {
+            // Add canvas as preview
+            const previewClone = canvas.cloneNode(true);
+            previewContainer.appendChild(previewClone);
+        });
     });
 });
 
@@ -89,13 +98,14 @@ document.getElementById('generate').addEventListener('click', function () {
 
     const names = maleNames.concat(femaleNames);
 
+    // For each name, create a separate image and download it
     names.forEach((name, index) => {
         drawTextOnImage(image, name, settings, function (canvas, name) {
             // Convert the canvas to a jpg image
             const dataUrl = canvas.toDataURL('image/jpeg');  // Change to 'image/jpeg' for jpg format
             const link = document.createElement('a');
             link.href = dataUrl;
-            link.download = `${name}.jpg`; // Set the filename to the name on the image
+            link.download = `${name}.jpg`; // Use name as the filename for the image
             link.click();
         });
     });
