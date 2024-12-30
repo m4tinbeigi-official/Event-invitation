@@ -13,10 +13,12 @@ document.getElementById('imageUpload').addEventListener('change', function (even
     }
 });
 
-function drawTextOnImage(image, name, settings, callback) {
+function drawTextOnImage(imageSrc, name, settings, callback) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
+    const image = new Image();
 
+    image.src = imageSrc;
     image.onload = function () {
         canvas.width = image.width;
         canvas.height = image.height;
@@ -42,13 +44,13 @@ function drawTextOnImage(image, name, settings, callback) {
         // رسم متن روی تصویر
         ctx.fillText(name, settings.startX, settings.startY);
 
-        // ارسال نتیجه به callback
+        // بازگشت نتیجه
         callback(canvas, name);
     };
 }
 
 document.getElementById('preview').addEventListener('click', function () {
-    const defaultImageSrc = document.getElementById('defaultImage').src;
+    const imageSrc = document.getElementById('defaultImage').src;
     const maleNames = document.getElementById('maleNames').value.split('\n').filter(Boolean);
     const femaleNames = document.getElementById('femaleNames').value.split('\n').filter(Boolean);
     const fontColor = document.getElementById('fontColor').value;
@@ -60,28 +62,24 @@ document.getElementById('preview').addEventListener('click', function () {
     const addPrefix = document.querySelector('input[name="addPrefix"]:checked').value;
 
     const settings = { fontColor, fontSize, fontFamily, startX, startY, textAlign, addPrefix, femaleNames };
-
     const names = maleNames.concat(femaleNames);
+
+    // پاک کردن پیش‌نمایش‌های قبلی
     const previewContainer = document.getElementById('previewContainer');
-    previewContainer.innerHTML = ''; // پاک کردن پیش‌نمایش‌های قبلی
+    previewContainer.innerHTML = '';
 
+    // تولید پیش‌نمایش برای هر نام
     names.forEach((name) => {
-        const image = new Image();
-        image.src = defaultImageSrc;
-
-        image.onload = function () {
-            drawTextOnImage(image, name, settings, function (canvas, name) {
-                const previewClone = document.createElement('img');
-                previewClone.src = canvas.toDataURL('image/jpeg');
-                previewClone.setAttribute('data-name', name);
-                previewContainer.appendChild(previewClone);
-            });
-        };
+        drawTextOnImage(imageSrc, name, settings, function (canvas) {
+            const previewClone = document.createElement('img');
+            previewClone.src = canvas.toDataURL('image/jpeg');
+            previewContainer.appendChild(previewClone);
+        });
     });
 });
 
 document.getElementById('generate').addEventListener('click', function () {
-    const defaultImageSrc = document.getElementById('defaultImage').src;
+    const imageSrc = document.getElementById('defaultImage').src;
     const maleNames = document.getElementById('maleNames').value.split('\n').filter(Boolean);
     const femaleNames = document.getElementById('femaleNames').value.split('\n').filter(Boolean);
     const fontColor = document.getElementById('fontColor').value;
@@ -93,22 +91,16 @@ document.getElementById('generate').addEventListener('click', function () {
     const addPrefix = document.querySelector('input[name="addPrefix"]:checked').value;
 
     const settings = { fontColor, fontSize, fontFamily, startX, startY, textAlign, addPrefix, femaleNames };
-
     const names = maleNames.concat(femaleNames);
 
     names.forEach((name) => {
-        const image = new Image();
-        image.src = defaultImageSrc;
-
-        image.onload = function () {
-            drawTextOnImage(image, name, settings, function (canvas, name) {
-                const dataUrl = canvas.toDataURL('image/jpeg');
-                const link = document.createElement('a');
-                link.href = dataUrl;
-                link.download = `${name}.jpg`;
-                link.click();
-            });
-        };
+        drawTextOnImage(imageSrc, name, settings, function (canvas, name) {
+            const dataUrl = canvas.toDataURL('image/jpeg');
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = `${name}.jpg`;
+            link.click();
+        });
     });
 
     alert('تمام دعوت‌نامه‌ها دانلود شدند.');
