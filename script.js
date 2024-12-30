@@ -17,21 +17,20 @@ function drawTextOnImage(image, name, settings, callback) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    // Wait for the image to load
     image.onload = function () {
         canvas.width = image.width;
         canvas.height = image.height;
 
-        // Draw the image
+        // رسم تصویر
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-        // Set text styles
+        // تنظیمات متن
         ctx.font = `${settings.fontSize}px ${settings.fontFamily}`;
         ctx.fillStyle = settings.fontColor;
         ctx.textAlign = settings.textAlign;
         ctx.textBaseline = 'middle';
 
-        // Prepare the name (add prefix if needed)
+        // افزودن پیشوند به نام
         if (settings.addPrefix === 'auto') {
             if (settings.femaleNames.includes(name)) {
                 name = 'سرکار خانم ' + name;
@@ -40,18 +39,16 @@ function drawTextOnImage(image, name, settings, callback) {
             }
         }
 
-        // Draw the name
-        const yPosition = settings.startY;
-        ctx.fillText(name, settings.startX, yPosition);
+        // رسم متن روی تصویر
+        ctx.fillText(name, settings.startX, settings.startY);
 
-        callback(canvas, name); // Pass canvas and name to callback
+        // ارسال نتیجه به callback
+        callback(canvas, name);
     };
 }
 
 document.getElementById('preview').addEventListener('click', function () {
-    const image = new Image();
-    image.src = document.getElementById('defaultImage').src;
-
+    const defaultImageSrc = document.getElementById('defaultImage').src;
     const maleNames = document.getElementById('maleNames').value.split('\n').filter(Boolean);
     const femaleNames = document.getElementById('femaleNames').value.split('\n').filter(Boolean);
     const fontColor = document.getElementById('fontColor').value;
@@ -65,27 +62,26 @@ document.getElementById('preview').addEventListener('click', function () {
     const settings = { fontColor, fontSize, fontFamily, startX, startY, textAlign, addPrefix, femaleNames };
 
     const names = maleNames.concat(femaleNames);
-
-    // Clear previous previews
     const previewContainer = document.getElementById('previewContainer');
-    previewContainer.innerHTML = ''; // Clear previous previews
+    previewContainer.innerHTML = ''; // پاک کردن پیش‌نمایش‌های قبلی
 
-    // For each name, create a preview
     names.forEach((name) => {
-        drawTextOnImage(image, name, settings, function (canvas, name) {
-            // Create a new image element for the preview
-            const previewClone = document.createElement('img');
-            previewClone.src = canvas.toDataURL('image/jpeg'); // Create the image preview
-            previewClone.setAttribute('data-name', name); // Set a custom attribute to track the name
-            previewContainer.appendChild(previewClone); // Add the preview image to the container
-        });
+        const image = new Image();
+        image.src = defaultImageSrc;
+
+        image.onload = function () {
+            drawTextOnImage(image, name, settings, function (canvas, name) {
+                const previewClone = document.createElement('img');
+                previewClone.src = canvas.toDataURL('image/jpeg');
+                previewClone.setAttribute('data-name', name);
+                previewContainer.appendChild(previewClone);
+            });
+        };
     });
 });
 
 document.getElementById('generate').addEventListener('click', function () {
-    const image = new Image();
-    image.src = document.getElementById('defaultImage').src;
-
+    const defaultImageSrc = document.getElementById('defaultImage').src;
     const maleNames = document.getElementById('maleNames').value.split('\n').filter(Boolean);
     const femaleNames = document.getElementById('femaleNames').value.split('\n').filter(Boolean);
     const fontColor = document.getElementById('fontColor').value;
@@ -100,27 +96,20 @@ document.getElementById('generate').addEventListener('click', function () {
 
     const names = maleNames.concat(femaleNames);
 
-    // Create an array to store canvas data
-    const canvases = [];
-
-    // Generate the canvases for each name
     names.forEach((name) => {
-        drawTextOnImage(image, name, settings, function (canvas, name) {
-            canvases.push({ canvas, name });
-        });
+        const image = new Image();
+        image.src = defaultImageSrc;
+
+        image.onload = function () {
+            drawTextOnImage(image, name, settings, function (canvas, name) {
+                const dataUrl = canvas.toDataURL('image/jpeg');
+                const link = document.createElement('a');
+                link.href = dataUrl;
+                link.download = `${name}.jpg`;
+                link.click();
+            });
+        };
     });
 
-    // Delay to ensure all images are ready before download
-    setTimeout(function() {
-        canvases.forEach(function (item) {
-            const canvas = item.canvas;
-            const dataUrl = canvas.toDataURL('image/jpeg'); // Change to 'image/jpeg' for jpg format
-            const link = document.createElement('a');
-            link.href = dataUrl;
-            link.download = `${item.name}.jpg`; // Use name as the filename for the image
-            link.click();
-        });
-
-        alert('All invitations have been downloaded.');
-    }, 500); // Ensure that all canvas drawing is completed before proceeding
+    alert('تمام دعوت‌نامه‌ها دانلود شدند.');
 });
