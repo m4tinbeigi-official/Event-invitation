@@ -12,10 +12,11 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center; /* صفحه را در مرکز قرار می‌دهد */
-    align-items: center; /* عمودی وسط کردن */
-    min-height: 100vh;
+    align-items: flex-start; /* محتوای صفحه به بالا چسبیده */
+    min-height: 100vh; /* صفحه باید حداقل به اندازه نمایشگر باشد */
     color: #333;
     padding: 20px;
+    flex-direction: column; /* برای قرار دادن محتوای صفحه به صورت عمودی */
 }
 
 .container {
@@ -27,8 +28,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     margin-top: 30px;
-    display: flex;
-    flex-direction: column; /* محتوای درون کانتینر به صورت عمودی */
+    flex: 1; /* فضای اضافی را پر می‌کند */
 }
 
 h1 {
@@ -167,6 +167,9 @@ button:hover {
     border-top: 1px solid #ddd;
     font-size: 14px;
     color: #555;
+    width: 100%; /* عرض کامل */
+    position: relative;
+    bottom: 0; /* در پایین صفحه ثابت بماند */
 }
 
 .footer p {
