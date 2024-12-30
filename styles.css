@@ -54,7 +54,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
-    font-size: 1rem;  /* Size adjustment for better readability */
+    font-size: 1rem;
 }
 
 textarea {
@@ -79,15 +79,25 @@ button:hover {
 }
 
 .preview-container {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* فاصله بین پیش‌نمایش‌ها */
     margin-top: 20px;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+.preview-container img {
+    width: 50%; /* نمایش در اندازه ۵۰ درصد */
+    max-width: 200px; /* حداکثر عرض */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.preview-container img:hover {
+    transform: scale(1.05); /* بزرگنمایی هنگام هاور */
 }
 
 @media (max-width: 600px) {
@@ -117,6 +127,10 @@ img {
     button {
         font-size: 1rem;
     }
+
+    .preview-container img {
+        width: 60%; /* در دستگاه‌های کوچکتر پیش‌نمایش بزرگتر شود */
+    }
 }
 
 @media (max-width: 400px) {
@@ -134,5 +148,9 @@ img {
 
     button {
         font-size: 0.9rem;
+    }
+
+    .preview-container img {
+        width: 80%; /* در دستگاه‌های خیلی کوچک */
     }
 }
