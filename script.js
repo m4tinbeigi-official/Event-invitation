@@ -13,7 +13,7 @@ document.getElementById('imageUpload').addEventListener('change', function (even
     }
 });
 
-function drawTextOnImage(image, names, settings, callback) {
+function drawTextOnImage(image, name, settings, callback) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -31,21 +31,20 @@ function drawTextOnImage(image, names, settings, callback) {
         ctx.textAlign = settings.textAlign;
         ctx.textBaseline = 'middle';
 
-        // Draw each name
-        let yPosition = settings.startY;
-        names.forEach((name) => {
-            if (settings.addPrefix === 'auto') {
-                if (settings.femaleNames.includes(name)) {
-                    name = 'سرکار خانم ' + name;
-                } else {
-                    name = 'جناب آقای ' + name;
-                }
+        // Prepare the name (add prefix if needed)
+        if (settings.addPrefix === 'auto') {
+            if (settings.femaleNames.includes(name)) {
+                name = 'سرکار خانم ' + name;
+            } else {
+                name = 'جناب آقای ' + name;
             }
-            ctx.fillText(name, settings.startX, yPosition);
-            yPosition += settings.fontSize * 1.5; // Adjust spacing between names
-        });
+        }
 
-        callback(canvas);
+        // Draw the name
+        const yPosition = settings.startY;
+        ctx.fillText(name, settings.startX, yPosition);
+
+        callback(canvas, name);
     };
 }
 
@@ -91,11 +90,12 @@ document.getElementById('generate').addEventListener('click', function () {
     const names = maleNames.concat(femaleNames);
 
     names.forEach((name, index) => {
-        drawTextOnImage(image, [name], settings, function (canvas) {
-            const dataUrl = canvas.toDataURL('image/png');
+        drawTextOnImage(image, name, settings, function (canvas, name) {
+            // Convert the canvas to a jpg image
+            const dataUrl = canvas.toDataURL('image/jpeg');  // Change to 'image/jpeg' for jpg format
             const link = document.createElement('a');
             link.href = dataUrl;
-            link.download = `invitation_${index + 1}.png`;
+            link.download = `${name}.jpg`; // Set the filename to the name on the image
             link.click();
         });
     });
