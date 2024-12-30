@@ -30,6 +30,7 @@ body {
     margin-top: 30px;
     flex: 1; /* برای پر کردن فضای اضافی */
     box-sizing: border-box;
+	align-self: center;
 }
 
 h1 {
