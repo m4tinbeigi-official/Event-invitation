@@ -8,27 +8,28 @@
 
 body {
     font-family: Vazir, sans-serif;
-    direction: rtl;
+    direction: rtl;  /* جهت متن از راست به چپ */
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center; /* صفحه را در مرکز قرار می‌دهد */
-    align-items: flex-start; /* محتوای صفحه به بالا چسبیده */
-    min-height: 100vh; /* صفحه باید حداقل به اندازه نمایشگر باشد */
+    justify-content: center; /* صفحه را در مرکز افقی قرار می‌دهد */
+    align-items: flex-start; /* صفحه از بالا شروع شود */
+    min-height: 100vh; /* صفحه حداقل به اندازه ارتفاع صفحه نمایش */
     color: #333;
     padding: 20px;
-    flex-direction: column; /* برای قرار دادن محتوای صفحه به صورت عمودی */
+    flex-direction: column; /* محتوای صفحه به صورت عمودی قرار می‌گیرد */
 }
 
 .container {
     width: 100%;
-    max-width: 800px;
+    max-width: 800px; /* حداکثر عرض برای container */
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
     margin-top: 30px;
-    flex: 1; /* فضای اضافی را پر می‌کند */
+    flex: 1; /* برای پر کردن فضای اضافی */
+    box-sizing: border-box;
 }
 
 h1 {
