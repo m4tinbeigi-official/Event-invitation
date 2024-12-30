@@ -76,6 +76,7 @@ document.getElementById('preview').addEventListener('click', function () {
             // Create a new image element for the preview
             const previewClone = document.createElement('img');
             previewClone.src = canvas.toDataURL('image/jpeg'); // Create the image preview
+            previewClone.setAttribute('data-name', name); // Set a custom attribute to track the name
             previewContainer.appendChild(previewClone); // Add the preview image to the container
         });
     });
@@ -99,15 +100,26 @@ document.getElementById('generate').addEventListener('click', function () {
 
     const names = maleNames.concat(femaleNames);
 
-    // For each name, create a separate image and download it
-    names.forEach((name, index) => {
+    // Create an array to store canvas data
+    const canvases = [];
+
+    // Generate the canvases for each name
+    names.forEach((name) => {
         drawTextOnImage(image, name, settings, function (canvas, name) {
-            // Convert the canvas to a jpg image
-            const dataUrl = canvas.toDataURL('image/jpeg');  // Change to 'image/jpeg' for jpg format
-            const link = document.createElement('a');
-            link.href = dataUrl;
-            link.download = `${name}.jpg`; // Use name as the filename for the image
-            link.click();
+            canvases.push({ canvas, name });
         });
+    });
+
+    // Download all images once all are ready
+    Promise.all(canvases.map((item) => new Promise((resolve) => {
+        const canvas = item.canvas;
+        const dataUrl = canvas.toDataURL('image/jpeg'); // Change to 'image/jpeg' for jpg format
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = `${item.name}.jpg`; // Use name as the filename for the image
+        link.click();
+        resolve(); // Resolve each promise after the download is triggered
+    }))).then(() => {
+        alert('All invitations have been downloaded.');
     });
 });
