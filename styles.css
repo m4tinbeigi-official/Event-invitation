@@ -19,6 +19,30 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Lalezar";
+  src: url("assets/fonts/lalezar-arabic-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aref Ruqaa";
+  src: url("assets/fonts/aref-ruqaa-arabic-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Markazi Text";
+  src: url("assets/fonts/markazi-text-arabic-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #f3f1ec;
   --paper-2: #ebe8e1;
@@ -696,4 +720,124 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ---------------- سوییچ زبان ---------------- */
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+}
+.lang-btn {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 5px 9px;
+  min-height: 28px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .15s var(--ease);
+}
+.lang-btn:hover { color: var(--ink); }
+.lang-btn[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
+
+/* ---------------- قالب‌ها ---------------- */
+.tpl-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.tpl {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 10.5px;
+  color: var(--muted);
+  min-width: 0;
+}
+.tpl-swatch {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 9px;
+  background: var(--tpl, #ddd);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s var(--ease), box-shadow .15s var(--ease);
+}
+.tpl:hover .tpl-swatch { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.tpl[aria-pressed="true"] .tpl-swatch { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tpl[aria-pressed="true"] .tpl-name { color: var(--accent); font-weight: 700; }
+.tpl:focus-visible .tpl-swatch { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tpl-name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------------- ابزارهای زیر بوم ---------------- */
+.stage-tools { display: flex; gap: 8px; align-items: stretch; }
+.stage-tools .name-nav { flex: 1; min-width: 0; }
+.history {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------------- ردیف دکمه ---------------- */
+.btn-row { display: flex; gap: 8px; }
+.btn-row .btn {
+  flex: 1;
+  min-height: 40px;
+  padding: 9px 8px;
+  font-size: 12.5px;
+}
+
+/* ---------------- بلوک‌های اضافی ---------------- */
+.extras {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-block-start: 10px;
+  border-block-start: 1px solid var(--line);
+}
+.extra-list { display: flex; flex-direction: column; gap: 8px; }
+.extra-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 86px 34px;
+  gap: 6px;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 6px;
+}
+.extra-row input[type="text"] {
+  padding: 7px 9px;
+  font-size: 12.5px;
+  border-radius: 8px;
+}
+.extra-row input[type="range"] { height: 26px; }
+
+@media (max-width: 560px) {
+  .tpl-grid { gap: 6px; }
+  .tpl { font-size: 9.5px; }
+  .stage-tools { gap: 6px; }
+  .btn-row { flex-direction: column; }
+  .extra-row { grid-template-columns: minmax(0, 1fr) 72px 32px; }
 }

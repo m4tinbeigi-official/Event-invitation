@@ -6,13 +6,13 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#0e5c46">
 
-  <title>دعوت‌نامه‌ساز | ساخت دعوت‌نامه آنلاین با تصویر دلخواه</title>
-  <meta name="description" content="با دعوت‌نامه‌ساز در چند ثانیه یک دعوت‌نامه اختصاصی بسازید: تصویر خودتان را بگذارید، نام‌ها را وارد کنید، متن را با ماوس جابه‌جا کنید و همه کارت‌ها را یک‌جا دانلود کنید. بدون نصب، بدون سرور، کاملا در مرورگر.">
+  <title>دعوت‌نامه‌ساز | ساخت دعوت‌نامه آنلاین با قالب آماده و PDF چاپی</title>
+  <meta name="description" content="با دعوت‌نامه‌ساز در چند ثانیه یک دعوت‌نامه اختصاصی بسازید: قالب آماده یا تصویر خودتان، جای‌گذاری هوشمند متن، خروجی دسته‌ای ZIP و PDF چاپی A4. بدون نصب، بدون سرور، کاملا در مرورگر.">
   <meta name="author" content="ریک سانچز">
   <link rel="canonical" href="https://m4tinbeigi-official.github.io/Event-invitation/">
 
   <meta property="og:title" content="دعوت‌نامه‌ساز | ساخت دعوت‌نامه آنلاین">
-  <meta property="og:description" content="تصویر خودت را بگذار، نام‌ها را وارد کن، متن را با ماوس جابه‌جا کن و همه کارت‌ها را یک‌جا دانلود کن.">
+  <meta property="og:description" content="قالب آماده، جای‌گذاری هوشمند متن، خروجی دسته‌ای و PDF چاپی. همه در مرورگر شما.">
   <meta property="og:image" content="https://m4tinbeigi-official.github.io/Event-invitation/default-image-yektanet.jpg">
   <meta property="og:image:width" content="716">
   <meta property="og:image:height" content="1280">
@@ -23,7 +23,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="دعوت‌نامه‌ساز | ساخت دعوت‌نامه آنلاین">
-  <meta name="twitter:description" content="تصویر خودت را بگذار، نام‌ها را وارد کن و همه دعوت‌نامه‌ها را یک‌جا دانلود کن.">
+  <meta name="twitter:description" content="قالب آماده، جای‌گذاری هوشمند متن، خروجی دسته‌ای و PDF چاپی.">
   <meta name="twitter:image" content="https://m4tinbeigi-official.github.io/Event-invitation/default-image-yektanet.jpg">
 
   <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -43,34 +43,39 @@
     "applicationCategory": "DesignApplication",
     "operatingSystem": "Any",
     "inLanguage": "fa-IR",
-    "description": "ابزار آنلاین ساخت دعوت‌نامه اختصاصی با تصویر دلخواه و خروجی دسته‌ای.",
+    "description": "استودیوی مرورگری ساخت دعوت‌نامه با قالب آماده، جای‌گذاری هوشمند متن، خروجی دسته‌ای ZIP و PDF چاپی.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "IRR" },
-    "author": { "@type": "Person", "name": "ریک سانچز", "url": "https://github.com/m4tinbeigi-official" }
+    "author": { "@type": "Person", "name": "ریک سانچز", "url": "https://github.com/m4tinbeigi-official" },
+    "featureList": ["قالب آماده", "جای‌گذاری هوشمند متن", "خروجی ZIP", "PDF چاپی", "لینک شخصی‌سازی‌شده", "حالت آفلاین"]
   }
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#studio">پرش به ویرایشگر</a>
+  <a class="skip-link" href="#studio" data-i18n="a11y.skip">پرش به ویرایشگر</a>
 
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="./" aria-label="دعوت‌نامه‌ساز، صفحه اصلی">
+      <a class="brand" href="./" aria-label="دعوت‌نامه‌ساز" data-i18n-aria="a11y.brand">
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
           <rect x="1" y="1" width="30" height="30" rx="9" fill="currentColor"/>
           <path d="M9 22V10h3.2l3.8 6.4L19.8 10H23v12h-2.9v-7.3L16.4 21h-.8l-3.7-6.3V22H9z" fill="#fff"/>
         </svg>
         <span class="brand-text">
-          <strong>دعوت‌نامه‌ساز</strong>
-          <small>کارت دعوت اختصاصی، در مرورگر شما</small>
+          <strong data-i18n="app.name">دعوت‌نامه‌ساز</strong>
+          <small data-i18n="app.tagline">کارت دعوت اختصاصی، در مرورگر شما</small>
         </span>
       </a>
 
-      <nav class="topnav" aria-label="پیوندها">
+      <nav class="topnav" aria-label="پیوندها" data-i18n-aria="a11y.links">
+        <div class="lang-switch" role="group" aria-label="زبان" data-i18n-aria="a11y.lang">
+          <button type="button" class="lang-btn" data-lang="fa" aria-pressed="true">فا</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
         <a class="topnav-link" href="https://github.com/m4tinbeigi-official/Event-invitation" target="_blank" rel="noopener">
           <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A7.995 7.995 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-          <span>گیت‌هاب</span>
+          <span data-i18n="nav.github">گیت‌هاب</span>
         </a>
-        <a class="btn btn-star" href="https://github.com/m4tinbeigi-official/Event-invitation" target="_blank" rel="noopener">
+        <a class="btn btn-star" href="https://github.com/m4tinbeigi-official/Event-invitation" target="_blank" rel="noopener" data-i18n="nav.star">
           ستاره بدهید
         </a>
       </nav>
@@ -78,96 +83,112 @@
   </header>
 
   <main id="studio" class="studio">
-    <section class="stage-col" aria-label="پیش‌نمایش زنده">
+    <section class="stage-col" aria-label="پیش‌نمایش زنده" data-i18n-aria="a11y.stage">
       <div class="stage-head">
-        <h1 class="page-title">ساخت دعوت‌نامه</h1>
-        <p class="page-sub">تصویر را انتخاب کنید، نام‌ها را وارد کنید و متن را مستقیم روی کارت بکشید.</p>
+        <h1 class="page-title" data-i18n="page.title">ساخت دعوت‌نامه</h1>
+        <p class="page-sub" data-i18n="page.sub">قالب را انتخاب کنید یا تصویر خودتان را بگذارید، نام‌ها را وارد کنید و متن را روی کارت بکشید.</p>
       </div>
 
       <div class="stage-frame">
         <div class="stage" id="stage" tabindex="0" role="application"
-             aria-label="بوم پیش‌نمایش دعوت‌نامه. برای جابه‌جایی متن، آن را بکشید یا با کلیدهای جهت‌دار حرکت دهید.">
+             aria-label="بوم پیش‌نمایش دعوت‌نامه" data-i18n-aria="a11y.canvas">
           <canvas id="canvas"></canvas>
         </div>
         <div class="stage-badge" id="stageBadge" hidden></div>
         <div class="stage-tip" id="stageTip">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M11 3h2v9h3l-4 4-4-4h3V3Zm-7 16h16v2H4v-2Z"/></svg>
-          متن را با ماوس یا انگشت جابه‌جا کنید
+          <span data-i18n="stage.tip">متن را با ماوس یا انگشت جابه‌جا کنید</span>
         </div>
       </div>
 
-      <div class="name-nav" id="nameNav">
-        <button class="icon-btn" type="button" id="prevName" aria-label="نام قبلی">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
-        </button>
-        <div class="chips" id="chips" role="group" aria-label="انتخاب نام"></div>
-        <button class="icon-btn" type="button" id="nextName" aria-label="نام بعدی">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
-        </button>
+      <div class="stage-tools">
+        <div class="name-nav" id="nameNav">
+          <button class="icon-btn" type="button" id="prevName" aria-label="نام قبلی" data-i18n-aria="a11y.prevName">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+          </button>
+          <div class="chips" id="chips" role="group" aria-label="انتخاب نام" data-i18n-aria="a11y.chips"></div>
+          <button class="icon-btn" type="button" id="nextName" aria-label="نام بعدی" data-i18n-aria="a11y.nextName">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
+          </button>
+        </div>
+        <div class="history" role="group" aria-label="تاریخچه" data-i18n-aria="a11y.history">
+          <button class="icon-btn" type="button" id="undo" aria-label="واگرد" data-i18n-aria="a11y.undo" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.5 8c-2.65 0-5.05 1-6.9 2.6L2 7v9h9l-3.62-3.62A7.5 7.5 0 0 1 20 15.5l2-1A9.5 9.5 0 0 0 12.5 8Z"/></svg>
+          </button>
+          <button class="icon-btn" type="button" id="redo" aria-label="ازنو" data-i18n-aria="a11y.redo" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.5 8c2.65 0 5.05 1 6.9 2.6L22 7v9h-9l3.62-3.62A7.5 7.5 0 0 0 4 15.5L2 14.5A9.5 9.5 0 0 1 11.5 8Z"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
-    <aside class="panel" aria-label="تنظیمات">
+    <aside class="panel" aria-label="تنظیمات" data-i18n-aria="a11y.panel">
       <details class="sec" open>
         <summary>
-          <span class="sec-num">۱</span><span class="sec-title">تصویر زمینه</span>
+          <span class="sec-num">۱</span><span class="sec-title" data-i18n="sec.bg">تصویر زمینه</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m7 10 5 5 5-5z"/></svg>
         </summary>
         <div class="sec-body">
-          <div class="drop" id="drop" role="button" tabindex="0" aria-label="انتخاب یا رها کردن تصویر دعوت‌نامه">
+          <div class="field">
+            <span class="label-text" data-i18n="tpl.label">قالب‌های آماده</span>
+            <div class="tpl-grid" id="tplGrid" role="group" aria-label="قالب‌ها" data-i18n-aria="a11y.templates"></div>
+          </div>
+
+          <div class="drop" id="drop" role="button" tabindex="0" aria-label="انتخاب یا رها کردن تصویر" data-i18n-aria="a11y.drop">
             <svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 13v5H5v-5H3v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5h-2Zm-6-9h-2v8.2l-2.6-2.6L7 11l5 5 5-5-1.4-1.4L13 12.2V4Z"/></svg>
-            <p class="drop-title">تصویر را اینجا رها کنید</p>
-            <p class="drop-sub">یا کلیک کنید. JPG، PNG یا WebP تا ۱۵ مگابایت</p>
+            <p class="drop-title" data-i18n="drop.title">تصویر خودتان را اینجا رها کنید</p>
+            <p class="drop-sub" data-i18n="drop.sub">یا کلیک کنید. JPG، PNG یا WebP تا ۱۵ مگابایت</p>
             <input type="file" id="imageUpload" accept="image/jpeg,image/png,image/webp,image/*" hidden>
           </div>
+
           <div class="img-meta" id="imgMeta" hidden>
             <div class="img-meta-text">
-              <strong id="imgName">تصویر پیش‌فرض</strong>
+              <strong id="imgName"></strong>
               <span id="imgDims" class="muted"></span>
             </div>
-            <button type="button" class="linkish" id="useDefault">تصویر پیش‌فرض</button>
+            <button type="button" class="linkish" id="useDefault" data-i18n="img.default">تصویر پیش‌فرض</button>
           </div>
         </div>
       </details>
 
       <details class="sec" open>
         <summary>
-          <span class="sec-num">۲</span><span class="sec-title">اسامی</span>
+          <span class="sec-num">۲</span><span class="sec-title" data-i18n="sec.names">اسامی</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m7 10 5 5 5-5z"/></svg>
         </summary>
         <div class="sec-body">
           <div class="grid-2">
             <div class="field">
-              <label for="maleNames">آقایان <span class="hint">هر نام در یک خط</span></label>
+              <label for="maleNames"><span data-i18n="names.men">آقایان</span> <span class="hint" data-i18n="names.hint">هر نام در یک خط</span></label>
               <textarea id="maleNames" rows="5" spellcheck="false">آرش نیک‌نام
 سامان راد
 کیوان مهرابی</textarea>
             </div>
             <div class="field">
-              <label for="femaleNames">خانم‌ها <span class="hint">هر نام در یک خط</span></label>
+              <label for="femaleNames"><span data-i18n="names.women">خانم‌ها</span> <span class="hint" data-i18n="names.hint">هر نام در یک خط</span></label>
               <textarea id="femaleNames" rows="5" spellcheck="false">نازنین آذر
 مریم صبوری</textarea>
             </div>
           </div>
           <div class="row-between">
-            <span class="muted" id="nameCount">۵ نام</span>
-            <button type="button" class="linkish" id="clearNames">پاک کردن همه</button>
+            <span class="muted" id="nameCount"></span>
+            <button type="button" class="linkish" id="clearNames" data-i18n="names.clear">پاک کردن همه</button>
           </div>
 
           <fieldset class="seg" id="prefixModeGroup">
-            <legend>پیشوند نام‌ها</legend>
-            <label><input type="radio" name="prefixMode" value="auto" checked><span>خودکار</span></label>
-            <label><input type="radio" name="prefixMode" value="manual"><span>در متن نام</span></label>
-            <label><input type="radio" name="prefixMode" value="none"><span>بدون پیشوند</span></label>
+            <legend data-i18n="prefix.legend">پیشوند نام‌ها</legend>
+            <label><input type="radio" name="prefixMode" value="auto" checked><span data-i18n="prefix.auto">خودکار</span></label>
+            <label><input type="radio" name="prefixMode" value="manual"><span data-i18n="prefix.manual">در متن نام</span></label>
+            <label><input type="radio" name="prefixMode" value="none"><span data-i18n="prefix.none">بدون پیشوند</span></label>
           </fieldset>
 
           <div class="grid-2" id="prefixFields">
             <div class="field">
-              <label for="malePrefix">پیشوند آقایان</label>
+              <label for="malePrefix" data-i18n="prefix.male">پیشوند آقایان</label>
               <input type="text" id="malePrefix" value="جناب آقای" autocomplete="off">
             </div>
             <div class="field">
-              <label for="femalePrefix">پیشوند خانم‌ها</label>
+              <label for="femalePrefix" data-i18n="prefix.female">پیشوند خانم‌ها</label>
               <input type="text" id="femalePrefix" value="سرکار خانم" autocomplete="off">
             </div>
           </div>
@@ -176,44 +197,47 @@
 
       <details class="sec" open>
         <summary>
-          <span class="sec-num">۳</span><span class="sec-title">متن و تایپوگرافی</span>
+          <span class="sec-num">۳</span><span class="sec-title" data-i18n="sec.type">متن و تایپوگرافی</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m7 10 5 5 5-5z"/></svg>
         </summary>
         <div class="sec-body">
           <div class="field">
-            <label for="title">سطر بالای نام‌ها <span class="hint">اختیاری</span></label>
-            <input type="text" id="title" placeholder="مثلا: جشن فارغ‌التحصیلی" autocomplete="off">
+            <label for="title"><span data-i18n="text.title">سطر بالای نام‌ها</span> <span class="hint" data-i18n="text.optional">اختیاری</span></label>
+            <input type="text" id="title" data-i18n-placeholder="text.titlePh" placeholder="مثلا: جشن فارغ‌التحصیلی" autocomplete="off">
           </div>
           <div class="field">
-            <label for="note">سطر پایین نام‌ها <span class="hint">اختیاری</span></label>
-            <input type="text" id="note" placeholder="مثلا: پنجشنبه ۲۴ مرداد، ساعت ۱۹" autocomplete="off">
+            <label for="note"><span data-i18n="text.note">سطر پایین نام‌ها</span> <span class="hint" data-i18n="text.optional">اختیاری</span></label>
+            <input type="text" id="note" data-i18n-placeholder="text.notePh" placeholder="مثلا: پنجشنبه ۲۴ مرداد، ساعت ۱۹" autocomplete="off">
           </div>
 
           <div class="field">
-            <label for="fontFamily">قلم</label>
+            <label for="fontFamily" data-i18n="font.label">قلم</label>
             <select id="fontFamily">
-              <option value="Vazirmatn" selected>وزیرمتن (پیشنهادی)</option>
-              <option value="Tahoma">تاهوما</option>
-              <option value="Arial">آریال</option>
-              <option value="Times New Roman">تایمز نیو رومن</option>
+              <option value="Vazirmatn" selected data-i18n="font.vazir">وزیرمتن (پیشنهادی)</option>
+              <option value="Lalezar" data-i18n="font.lalezar">لاله‌زار (تیتر)</option>
+              <option value="Aref Ruqaa" data-i18n="font.aref">عارف رقعه (خوش‌نویسی)</option>
+              <option value="Markazi Text" data-i18n="font.markazi">مرکزی (نسخ کلاسیک)</option>
+              <option value="Tahoma" data-i18n="font.tahoma">تاهوما</option>
+              <option value="Arial" data-i18n="font.arial">آریال</option>
+              <option value="Times New Roman" data-i18n="font.times">تایمز نیو رومن</option>
             </select>
           </div>
 
           <div class="field">
-            <label for="fontSize">اندازه نام‌ها <output id="fontSizeOut" for="fontSize">۴۰</output></label>
+            <label for="fontSize"><span data-i18n="size.label">اندازه نام‌ها</span> <output id="fontSizeOut" for="fontSize">۴۰</output></label>
             <input type="range" id="fontSize" min="14" max="120" step="1" value="40">
           </div>
 
           <div class="field">
-            <span class="label-text">رنگ متن</span>
+            <span class="label-text" data-i18n="color.label">رنگ متن</span>
             <div class="swatches" id="swatches">
-              <button type="button" class="swatch" data-color="#14161b" style="--sw:#14161b" aria-label="مشکی"></button>
-              <button type="button" class="swatch" data-color="#ffffff" style="--sw:#ffffff" aria-label="سفید"></button>
-              <button type="button" class="swatch" data-color="#0e5c46" style="--sw:#0e5c46" aria-label="سبز تیره"></button>
-              <button type="button" class="swatch" data-color="#a8843f" style="--sw:#a8843f" aria-label="طلایی"></button>
-              <button type="button" class="swatch" data-color="#8e2b3f" style="--sw:#8e2b3f" aria-label="زرشکی"></button>
-              <button type="button" class="swatch" data-color="#1b3a6b" style="--sw:#1b3a6b" aria-label="سرمه‌ای"></button>
-              <label class="swatch swatch-custom" aria-label="رنگ دلخواه">
+              <button type="button" class="swatch" data-color="#14161b" style="--sw:#14161b" aria-label="مشکی" data-i18n-aria="color.black"></button>
+              <button type="button" class="swatch" data-color="#ffffff" style="--sw:#ffffff" aria-label="سفید" data-i18n-aria="color.white"></button>
+              <button type="button" class="swatch" data-color="#0e5c46" style="--sw:#0e5c46" aria-label="سبز تیره" data-i18n-aria="color.emerald"></button>
+              <button type="button" class="swatch" data-color="#a8843f" style="--sw:#a8843f" aria-label="طلایی" data-i18n-aria="color.gold"></button>
+              <button type="button" class="swatch" data-color="#8e2b3f" style="--sw:#8e2b3f" aria-label="زرشکی" data-i18n-aria="color.wine"></button>
+              <button type="button" class="swatch" data-color="#1b3a6b" style="--sw:#1b3a6b" aria-label="سرمه‌ای" data-i18n-aria="color.navy"></button>
+              <label class="swatch swatch-custom" aria-label="رنگ دلخواه" data-i18n-aria="color.custom">
                 <input type="color" id="fontColor" value="#14161b">
               </label>
             </div>
@@ -222,21 +246,21 @@
           <label class="switch">
             <input type="checkbox" id="outline">
             <span class="switch-ui" aria-hidden="true"></span>
-            <span class="switch-label">حاشیه دور متن برای خوانایی روی عکس شلوغ</span>
+            <span class="switch-label" data-i18n="outline.toggle">حاشیه دور متن برای خوانایی روی عکس شلوغ</span>
           </label>
 
           <div class="field" id="outlineWidthField" hidden>
-            <label for="outlineWidth">ضخامت حاشیه <output id="outlineWidthOut" for="outlineWidth">۲</output></label>
+            <label for="outlineWidth"><span data-i18n="outline.width">ضخامت حاشیه</span> <output id="outlineWidthOut" for="outlineWidth">۲</output></label>
             <input type="range" id="outlineWidth" min="1" max="10" step="1" value="2">
           </div>
 
           <div class="field">
-            <label for="maxWidth">حداکثر پهنای متن <output id="maxWidthOut" for="maxWidth">۷۸٪</output></label>
+            <label for="maxWidth"><span data-i18n="maxw.label">حداکثر پهنای متن</span> <output id="maxWidthOut" for="maxWidth">۷۸٪</output></label>
             <input type="range" id="maxWidth" min="30" max="100" step="1" value="78">
           </div>
 
           <div class="field">
-            <label for="lineHeight">فاصله سطرها <output id="lineHeightOut" for="lineHeight">۱٫۴</output></label>
+            <label for="lineHeight"><span data-i18n="lh.label">فاصله سطرها</span> <output id="lineHeightOut" for="lineHeight">۱٫۴</output></label>
             <input type="range" id="lineHeight" min="1" max="2.4" step="0.05" value="1.4">
           </div>
         </div>
@@ -244,53 +268,72 @@
 
       <details class="sec" open>
         <summary>
-          <span class="sec-num">۴</span><span class="sec-title">چیدمان</span>
+          <span class="sec-num">۴</span><span class="sec-title" data-i18n="sec.layout">چیدمان</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m7 10 5 5 5-5z"/></svg>
         </summary>
         <div class="sec-body">
           <fieldset class="seg" id="alignGroup">
-            <legend>تراز متن</legend>
-            <label><input type="radio" name="align" value="right"><span>راست</span></label>
-            <label><input type="radio" name="align" value="center" checked><span>وسط</span></label>
-            <label><input type="radio" name="align" value="left"><span>چپ</span></label>
+            <legend data-i18n="align.legend">تراز متن</legend>
+            <label><input type="radio" name="align" value="right"><span data-i18n="align.right">راست</span></label>
+            <label><input type="radio" name="align" value="center" checked><span data-i18n="align.center">وسط</span></label>
+            <label><input type="radio" name="align" value="left"><span data-i18n="align.left">چپ</span></label>
           </fieldset>
 
           <div class="field">
-            <label for="posX">موقعیت افقی <output id="posXOut" for="posX">۵۰٪</output></label>
+            <label for="posX"><span data-i18n="posx.label">موقعیت افقی</span> <output id="posXOut" for="posX">۵۰٪</output></label>
             <input type="range" id="posX" min="0" max="100" step="0.5" value="50">
           </div>
           <div class="field">
-            <label for="posY">موقعیت عمودی <output id="posYOut" for="posY">۶۲٪</output></label>
+            <label for="posY"><span data-i18n="posy.label">موقعیت عمودی</span> <output id="posYOut" for="posY">۶۲٪</output></label>
             <input type="range" id="posY" min="0" max="100" step="0.5" value="62">
           </div>
-          <button type="button" class="btn btn-ghost btn-block" id="centerText">برگرداندن به وسط کارت</button>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-ghost" id="centerText" data-i18n="center.btn">وسط کارت</button>
+            <button type="button" class="btn btn-ghost" id="smartPlace" data-i18n="smart.btn">چیدمان هوشمند</button>
+          </div>
+
+          <div class="extras">
+            <div class="row-between">
+              <span class="label-text" data-i18n="extras.title">بلوک‌های متنی اضافی</span>
+              <button type="button" class="linkish" id="addExtra" data-i18n="extras.add">افزودن بلوک</button>
+            </div>
+            <div id="extraList" class="extra-list"></div>
+          </div>
         </div>
       </details>
 
       <details class="sec">
         <summary>
-          <span class="sec-num">۵</span><span class="sec-title">خروجی</span>
+          <span class="sec-num">۵</span><span class="sec-title" data-i18n="sec.export">خروجی</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m7 10 5 5 5-5z"/></svg>
         </summary>
         <div class="sec-body">
           <fieldset class="seg" id="formatGroup">
-            <legend>قالب فایل</legend>
+            <legend data-i18n="format.legend">قالب فایل</legend>
             <label><input type="radio" name="format" value="jpg" checked><span>JPG</span></label>
             <label><input type="radio" name="format" value="png"><span>PNG</span></label>
           </fieldset>
 
           <div class="field" id="qualityField">
-            <label for="quality">کیفیت JPG <output id="qualityOut" for="quality">۹۲٪</output></label>
+            <label for="quality"><span data-i18n="quality.label">کیفیت JPG</span> <output id="qualityOut" for="quality">۹۲٪</output></label>
             <input type="range" id="quality" min="50" max="100" step="1" value="92">
           </div>
 
           <label class="switch">
             <input type="checkbox" id="zip" checked>
             <span class="switch-ui" aria-hidden="true"></span>
-            <span class="switch-label">دانلود همه در یک فایل ZIP</span>
+            <span class="switch-label" data-i18n="zip.toggle">دانلود همه در یک فایل ZIP</span>
           </label>
 
-          <p class="muted small">نام فایل‌ها به شکل <code>invitation-01-نام.jpg</code> ساخته می‌شود. پردازش تصویر روی دستگاه شما انجام می‌شود و هیچ فایلی آپلود نمی‌شود.</p>
+          <div class="btn-row">
+            <button type="button" class="btn btn-ghost" id="pdfSingle" data-i18n="pdf.single">PDF تک‌کارت</button>
+            <button type="button" class="btn btn-ghost" id="pdfSheet" data-i18n="pdf.sheet">PDF برگه A4</button>
+          </div>
+
+          <button type="button" class="btn btn-ghost btn-block" id="shareLink" data-i18n="share.btn">کپی لینک این کارت</button>
+
+          <p class="muted small" data-i18n="export.note">همه پردازش‌ها روی دستگاه شما انجام می‌شود و هیچ تصویری آپلود نمی‌شود.</p>
         </div>
       </details>
 
@@ -299,28 +342,28 @@
           <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
           <span class="progress-text" id="progressText" role="status" aria-live="polite"></span>
         </div>
-        <button type="button" class="btn btn-ghost" id="downloadCurrent">دانلود این کارت</button>
+        <button type="button" class="btn btn-ghost" id="downloadCurrent" data-i18n="btn.current">دانلود این کارت</button>
         <button type="button" class="btn btn-primary" id="downloadAll">دانلود همه (<span id="dlCount">۵</span>)</button>
-        <button type="button" class="linkish linkish-reset" id="resetAll">بازنشانی تنظیمات</button>
+        <button type="button" class="linkish linkish-reset" id="resetAll" data-i18n="btn.reset">بازنشانی تنظیمات</button>
       </div>
     </aside>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <p class="footer-credit">این پروژه با <span class="heart" aria-label="عشق">&#9829;</span> توسط <strong>ریک سانچز</strong> ساخته و آزاد منتشر شده است.</p>
+      <p class="footer-credit"><span data-i18n="footer.made">این پروژه با</span> <span class="heart" aria-hidden="true">&#9829;</span> <span data-i18n="footer.by">توسط</span> <strong>ریک سانچز</strong> <span data-i18n="footer.free">ساخته و آزاد منتشر شده است.</span></p>
       <p class="footer-credit"><a href="mailto:m4tinbeigi@gmail.com">m4tinbeigi@gmail.com</a></p>
       <div class="socials">
-        <a href="https://github.com/m4tinbeigi-official/" target="_blank" rel="noopener" aria-label="گیت‌هاب">
+        <a href="https://github.com/m4tinbeigi-official/" target="_blank" rel="noopener" aria-label="گیت‌هاب" data-i18n-aria="a11y.github">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A7.995 7.995 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
         </a>
-        <a href="https://twitter.com/m4tinbeigi" target="_blank" rel="noopener" aria-label="اکس">
+        <a href="https://twitter.com/m4tinbeigi" target="_blank" rel="noopener" aria-label="اکس" data-i18n-aria="a11y.x">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.24 2.25h3.3l-7.2 8.24L22.9 21.75h-6.63l-5.2-6.79-5.94 6.79H1.8l7.7-8.8L1.1 2.25h6.8l4.7 6.21 5.64-6.21Zm-1.16 17.52h1.83L7.02 4.13H5.06l12.02 15.64Z"/></svg>
         </a>
-        <a href="https://www.instagram.com/m4tinbeigi" target="_blank" rel="noopener" aria-label="اینستاگرام">
+        <a href="https://www.instagram.com/m4tinbeigi" target="_blank" rel="noopener" aria-label="اینستاگرام" data-i18n-aria="a11y.instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.96.24 2.42.4.6.24 1.03.52 1.49.97.45.46.73.89.97 1.49.16.46.35 1.25.4 2.42.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.96-.4 2.42-.24.6-.52 1.03-.97 1.49-.46.45-.89.73-1.49.97-.46.16-1.25.35-2.42.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.96-.24-2.42-.4a4.1 4.1 0 0 1-1.49-.97 4.1 4.1 0 0 1-.97-1.49c-.16-.46-.35-1.25-.4-2.42C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.96.4-2.42.24-.6.52-1.03.97-1.49a4.1 4.1 0 0 1 1.49-.97c.46-.16 1.25-.35 2.42-.4C8.42 2.17 8.8 2.16 12 2.16Zm0 1.8c-3.14 0-3.5.01-4.73.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.87-.4.41-.66.8-.87 1.35-.16.41-.35 1.03-.4 2.17-.06 1.23-.07 1.59-.07 4.73s.01 3.5.07 4.73c.05 1.14.24 1.76.4 2.17.21.55.47.94.87 1.35.41.4.8.66 1.35.87.41.16 1.03.35 2.17.4 1.23.06 1.59.07 4.73.07s3.5-.01 4.73-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.87.4-.41.66-.8.87-1.35.16-.41.35-1.03.4-2.17.06-1.23.07-1.59.07-4.73s-.01-3.5-.07-4.73c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 0 0-.87-1.35 3.6 3.6 0 0 0-1.35-.87c-.41-.16-1.03-.35-2.17-.4-1.23-.06-1.59-.07-4.73-.07Zm0 3.06a4.99 4.99 0 1 1 0 9.96 4.99 4.99 0 0 1 0-9.96Zm0 1.8a3.18 3.18 0 1 0 0 6.36 3.18 3.18 0 0 0 0-6.36Zm5.2-3.2a1.17 1.17 0 1 1 0 2.33 1.17 1.17 0 0 1 0-2.33Z"/></svg>
         </a>
-        <a href="https://linkedin.com/in/matinbeigi" target="_blank" rel="noopener" aria-label="لینکدین">
+        <a href="https://linkedin.com/in/matinbeigi" target="_blank" rel="noopener" aria-label="لینکدین" data-i18n-aria="a11y.linkedin">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21h-4V9Z"/></svg>
         </a>
       </div>
@@ -334,6 +377,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
+  <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
