@@ -100,7 +100,7 @@
         <button class="icon-btn" type="button" id="prevName" aria-label="نام قبلی">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
         </button>
-        <div class="chips" id="chips" role="tablist" aria-label="انتخاب نام"></div>
+        <div class="chips" id="chips" role="group" aria-label="انتخاب نام"></div>
         <button class="icon-btn" type="button" id="nextName" aria-label="نام بعدی">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
         </button>
@@ -296,8 +296,8 @@
 
       <div class="actions">
         <div class="progress" id="progress" hidden>
-          <div class="progress-bar"><span id="progressFill"></span></div>
-          <span class="progress-text" id="progressText"></span>
+          <div class="progress-bar" aria-hidden="true"><span id="progressFill"></span></div>
+          <span class="progress-text" id="progressText" role="status" aria-live="polite"></span>
         </div>
         <button type="button" class="btn btn-ghost" id="downloadCurrent">دانلود این کارت</button>
         <button type="button" class="btn btn-primary" id="downloadAll">دانلود همه (<span id="dlCount">۵</span>)</button>

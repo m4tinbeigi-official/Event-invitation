@@ -45,6 +45,9 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* ویژگی hidden باید هر استایل کلاسی را شکست دهد */
+[hidden] { display: none !important; }
+
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -332,7 +335,7 @@ code {
   transition: .15s var(--ease);
 }
 .chip:hover { border-color: var(--line-strong); }
-.chip[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
 .chips-empty { color: var(--muted); font-size: 12.5px; padding: 6px 4px; }
 
 /* ---------------- پنل تنظیمات ---------------- */

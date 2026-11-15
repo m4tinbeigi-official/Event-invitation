@@ -87,9 +87,8 @@
       const chip = document.createElement('button');
       chip.type = 'button';
       chip.className = 'chip';
-      chip.role = 'tab';
       chip.textContent = item.name;
-      chip.setAttribute('aria-selected', String(index === state.active));
+      chip.setAttribute('aria-pressed', String(index === state.active));
       chip.addEventListener('click', () => selectName(index));
       chips.appendChild(chip);
     });
@@ -109,7 +108,7 @@
   function selectName(index) {
     state.active = clamp(index, 0, Math.max(0, state.names.length - 1));
     const chips = $$('.chip', $('#chips'));
-    chips.forEach((chip, i) => chip.setAttribute('aria-selected', String(i === state.active)));
+    chips.forEach((chip, i) => chip.setAttribute('aria-pressed', String(i === state.active)));
     $('#prevName').disabled = state.active <= 0;
     $('#nextName').disabled = state.active >= state.names.length - 1;
     const activeChip = chips[state.active];
@@ -283,6 +282,7 @@
 
       const item = state.names[state.active];
       state.block = drawBlock(ctx, cw, ch, item, scale);
+      canvas.setAttribute('aria-label', item ? `پیش‌نمایش دعوت‌نامه برای ${item.name}` : 'پیش‌نمایش دعوت‌نامه');
 
       const badge = $('#stageBadge');
       badge.hidden = false;
@@ -451,10 +451,17 @@
     const button = $('#downloadAll');
     button.disabled = true;
     const items = state.names;
-    const asZip = S.zip && items.length > 1;
+    // مرورگر دانلودهای پشت‌سرهم را بلاک می‌کند؛ برای بیش از سه کارت همیشه یک ZIP می‌سازیم
+    const asZip = items.length > 1 && (S.zip || items.length > 3);
     const files = [];
+    const longEdge = Math.max(state.image.naturalWidth, state.image.naturalHeight);
 
     try {
+      if (!S.zip && asZip) {
+        toast('برای اینکه مرورگر دانلودها را بلاک نکند، همه در یک فایل ZIP بسته‌بندی شد');
+      } else if (longEdge > MAX_EXPORT_PX) {
+        toast(`تصویر اصلی ${fa(longEdge)} پیکسل است؛ خروجی روی ${fa(MAX_EXPORT_PX)} پیکسل مقیاس می‌شود`);
+      }
       showProgress(0, `آماده‌سازی ۰ از ${fa(items.length)}`);
       for (let i = 0; i < items.length; i++) {
         const card = await renderCard(items[i], i);
@@ -472,7 +479,7 @@
         downloadBlob(zip, `invitations-${items.length}.zip`);
         toast(`فایل ZIP با ${fa(items.length)} تصویر آماده شد`);
       } else if (items.length > 1) {
-        toast(`${fa(items.length)} فایل ارسال شد. اگر مرورگر اجازه نداد، گزینه ZIP را روشن کنید.`);
+        toast(`${fa(items.length)} فایل جدا ارسال شد. اگر مرورگر اجازه نداد، گزینه ZIP را روشن کنید.`);
       } else {
         toast('تصویر آماده شد');
       }
@@ -628,6 +635,7 @@
       if (!state.drag) return;
       state.drag = null;
       stage.classList.remove('dragging');
+      $('#stageTip').hidden = true;
       persist();
     };
     stage.addEventListener('pointerup', endDrag);
