@@ -1,0 +1,16 @@
+{
+  "name": "دعوت‌نامه‌ساز",
+  "short_name": "دعوت‌نامه",
+  "description": "ساخت کارت دعوت اختصاصی با تصویر دلخواه و خروجی دسته‌ای، تمام مرورگر.",
+  "lang": "fa-IR",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f1ec",
+  "theme_color": "#0e5c46",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
